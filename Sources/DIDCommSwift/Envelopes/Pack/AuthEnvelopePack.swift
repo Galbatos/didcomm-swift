@@ -98,7 +98,7 @@ struct AuthEnvelopePack {
         }
         let key = try await keySelector.findSigningKey(signFrom: signFrom)
         let signature = try Signer.sign(payload: message, key: key)
-        return (signature.data(using: .utf8), key.id)
+        return (signature.data(using: .utf8)!, key.id)
     }
     
     private func protectSenderIfNeeded(
